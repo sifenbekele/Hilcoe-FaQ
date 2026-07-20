@@ -326,18 +326,19 @@ function App() {
           </div>
 
           <div className="relative mx-auto max-w-3xl text-center">
+            
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm"
-            >
-              <motion.span
-                animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.15, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Sparkles size={13} className="text-hilcoe-red" />
-              </motion.span>
-              HiLCoE Student Help Center
+             initial={{ opacity: 0, y: 16 }}
+             animate={{ opacity: 1, y: 0 }}
+             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm shadow-glow animate-glowPulse"
+             >
+             <motion.span
+             animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.15, 1] }}
+             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+             >
+             <Sparkles size={13} className="text-hilcoe-red" />
+             </motion.span>
+             These information are provided for guidance only and do not replace official campus policies or decisions.
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
