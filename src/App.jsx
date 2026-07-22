@@ -211,7 +211,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-hilcoe-text">
-      {/* Navbar */}
+      {/* Navbar*/}
       <nav
         className={`fixed top-0 z-40 w-full transition-all duration-300 ${
           scrolled ? "bg-white/90 py-3 shadow-md backdrop-blur-md" : "bg-transparent py-4"
@@ -223,11 +223,11 @@ function App() {
             onClick={goTop}
             aria-label="HiLCoE home"
           >
-            <img src={logo} alt="HiLCoE logo" className="h-10 w-auto lg:h-11" />
+            <img src={logo} alt="HiLCoE logo" className="h-[7.5rem] w-auto lg:h-[8.25rem]" />
             <span className="hidden text-left sm:block">
               <span
                 className={`block text-sm font-black tracking-tight lg:text-base ${
-                  scrolled ? "text-hilcoe-blue" : "text-hilcoe-blue"
+                  scrolled ? "text-hilcoe-blue" : "text-hilcoe-muted"
                 }`}
               >
                 HiLCoE
@@ -268,7 +268,7 @@ function App() {
             <Menu size={28} />
           </button>
         </div>
-      </nav>
+      </nav> 
 
       {/* Mobile menu */}
       <AnimatePresence>
