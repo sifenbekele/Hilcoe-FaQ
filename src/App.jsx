@@ -223,18 +223,22 @@ function App() {
             onClick={goTop}
             aria-label="HiLCoE home"
           >
-            <img src={logo} alt="HiLCoE logo" className="h-[7.5rem] w-auto lg:h-[8.25rem]" />
-            <span className="hidden text-left sm:block">
+            <img src={logo} alt="HiLCoE logo" className="h-14 w-auto sm:h-20 lg:h-[8.25rem]" />
+            <span className="text-left leading-tight">
               <span
-                className={`block text-sm font-black tracking-tight lg:text-base ${
-                  scrolled ? "text-hilcoe-blue" : "text-hilcoe-muted"
+                className={`block text-xl font-black tracking-tight lg:text-2xl ${
+                scrolled ? "text-hilcoe-blue" : "text-white"
                 }`}
               >
-                HiLCoE
+                 HiLCoE
               </span>
-              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-hilcoe-muted">
-                Help Center
-              </span>
+              <span
+                className={`-mt-0.5 block text-sm font-bold uppercase tracking-[0.2em] ${
+                 scrolled ? "text-hilcoe-muted" : "text-white/70"
+                 }`}
+              >
+                 Help Center
+            </span>
             </span>
           </button>
 
