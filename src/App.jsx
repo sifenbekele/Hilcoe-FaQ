@@ -11,8 +11,11 @@ import {
   Bell,
   Check,
   Clock,
+  ExternalLink,
+  AlertCircle,
 } from "lucide-react";
 import FaqExplorer, { SearchBox } from "./FaqExplorer";
+import UpcomingEvents from "./UpcomingEvents";
 import { FAQS } from "./faqData";
 import { CATEGORIES, OFFICES, POPULAR } from "./faqMeta";
 import logo from "./assets/logo.png";
@@ -193,6 +196,10 @@ function App() {
     setMobileMenu(false);
     explorerRef.current?.scrollIntoView();
   };
+  const goEvents = () => {
+    setMobileMenu(false);
+    document.getElementById("events")?.scrollIntoView({ behavior: "smooth" });
+  };
   const goTopics = () => {
     setMobileMenu(false);
     document.getElementById("topics")?.scrollIntoView({ behavior: "smooth" });
@@ -205,6 +212,7 @@ function App() {
 
   const navLinks = [
     { label: "Home", onClick: goTop },
+    { label: "Events", onClick: goEvents },
     { label: "Topics", onClick: goTopics },
     { label: "Help Center", onClick: goFaq },
   ];
@@ -242,19 +250,43 @@ function App() {
             </span>
           </button>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             {navLinks.map((l) => (
               <button
                 key={l.label}
                 onClick={l.onClick}
-                className="text-sm font-bold uppercase tracking-widest text-hilcoe-blue transition-colors hover:text-hilcoe-red"
+                className={`text-sm font-bold uppercase tracking-widest transition-colors ${
+                  scrolled
+                    ? "text-hilcoe-blue hover:text-hilcoe-red"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {l.label}
               </button>
             ))}
+
+            <a
+              href="https://hilcoestudents.notion.site/2ae3a6b58e3680e8a189fba3758bb5d8?pvs=105"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 ${
+                scrolled
+                  ? "border border-hilcoe-red/30 bg-hilcoe-red/10 text-hilcoe-red hover:bg-hilcoe-red hover:text-white"
+                  : "border border-white/30 bg-white/10 text-white hover:bg-white hover:text-hilcoe-blue backdrop-blur-sm"
+              }`}
+            >
+              <AlertCircle size={14} />
+              Submit an Issue
+              <ExternalLink size={12} className="opacity-70" />
+            </a>
+
             <button
               onClick={openChat}
-              className="flex items-center gap-2 rounded-full bg-hilcoe-blue px-5 py-2.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-hilcoe-blue/20 transition-all hover:-translate-y-0.5 hover:bg-hilcoe-red"
+              className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all hover:-translate-y-0.5 ${
+                scrolled
+                  ? "bg-hilcoe-blue text-white shadow-lg shadow-hilcoe-blue/20 hover:bg-hilcoe-red"
+                  : "bg-white text-hilcoe-blue shadow-lg shadow-black/20 hover:bg-hilcoe-red hover:text-white"
+              }`}
             >
               <MessageSquare size={16} />
               Ask AI
@@ -266,7 +298,9 @@ function App() {
 
           <button
             onClick={() => setMobileMenu(true)}
-            className="text-hilcoe-blue lg:hidden"
+            className={`transition-colors lg:hidden ${
+              scrolled ? "text-hilcoe-blue" : "text-white"
+            }`}
             aria-label="Open menu"
           >
             <Menu size={28} />
@@ -299,12 +333,23 @@ function App() {
                   {l.label}
                 </button>
               ))}
+
+              <a
+                href="https://hilcoestudents.notion.site/2ae3a6b58e3680e8a189fba3758bb5d8?pvs=105"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenu(false)}
+                className="mt-4 flex items-center justify-center gap-2 rounded-full border border-hilcoe-red/30 bg-hilcoe-red/10 px-6 py-3 text-sm font-bold uppercase tracking-wider text-hilcoe-red transition hover:bg-hilcoe-red hover:text-white"
+              >
+                <AlertCircle size={16} /> Submit an Issue <ExternalLink size={13} />
+              </a>
+
               <button
                 onClick={() => {
                   setMobileMenu(false);
                   openChat();
                 }}
-                className="mt-4 flex items-center gap-2 rounded-full bg-hilcoe-blue px-6 py-3 text-sm font-black uppercase tracking-widest text-white"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-hilcoe-blue px-6 py-3 text-sm font-black uppercase tracking-widest text-white shadow-md"
               >
                 <MessageSquare size={18} /> Ask AI
               </button>
@@ -431,6 +476,9 @@ function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Upcoming Events in Landscape Mode */}
+        <UpcomingEvents />
 
         {/* Topic cards */}
         <section
