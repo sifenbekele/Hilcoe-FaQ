@@ -15,14 +15,13 @@ import qatarPoster from "./assets/qatar-airways-poster.webp";
 
 const EVENT = {
   id: "ev-qatar",
-  title: "Qatar Airways Student Club Recruitment",
+  title: "Aim for the skies — Qatar Airways Student Club ",
   subtitle:
-    "Aim for the skies — Exclusive student fares, extra baggage & travel perks",
+    "Our Student Club programme uniquely supports your academic adventure, from your initial college journey to rewarding trips back home.",
   date: "Pending",
   time: "To Be Announced",
   location: "HiLCoE Campus",
   category: "Campus Recruitment",
-  badge: "Official Partner",
   badgeStyle: "bg-[#5C0632] text-white",
   gradient: "from-[#5C0632] via-[#741144] to-[#2b0419]",
   attendees: "Open to All HiLCoE Students",
@@ -101,10 +100,12 @@ export default function UpcomingEvents() {
               {/* Top row: badges & bookmark */}
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#5C0632] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-white shadow-sm">
-                    <Plane size={10} />
-                    {EVENT.badge}
-                  </span>
+                  {EVENT.badge && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[#5C0632] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-white shadow-sm">
+                      <Plane size={10} />
+                      {EVENT.badge}
+                    </span>
+                  )}
                   <span className="rounded-full bg-hilcoe-soft px-2.5 py-0.5 text-[10px] font-bold text-hilcoe-blue">
                     {EVENT.category}
                   </span>
@@ -120,11 +121,10 @@ export default function UpcomingEvents() {
                     setBookmarked((b) => !b);
                   }}
                   aria-label={bookmarked ? "Bookmarked" : "Bookmark event"}
-                  className={`flex h-7 w-7 items-center justify-center rounded-lg transition-all ${
-                    bookmarked
+                  className={`flex h-7 w-7 items-center justify-center rounded-lg transition-all ${bookmarked
                       ? "bg-hilcoe-red text-white"
                       : "bg-hilcoe-soft text-hilcoe-muted hover:bg-hilcoe-blue/10 hover:text-hilcoe-blue"
-                  }`}
+                    }`}
                 >
                   <Bookmark
                     size={13}
@@ -200,9 +200,11 @@ export default function UpcomingEvents() {
 
                 <div className="relative z-10">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-white">
-                      {EVENT.badge}
-                    </span>
+                    {EVENT.badge && (
+                      <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-white">
+                        {EVENT.badge}
+                      </span>
+                    )}
                     <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/80">
                       {EVENT.category}
                     </span>
