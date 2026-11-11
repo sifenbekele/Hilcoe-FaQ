@@ -18,8 +18,8 @@ const EVENT = {
   title: "Aim for the skies — Qatar Airways Student Club ",
   subtitle:
     "Our Student Club programme uniquely supports your academic adventure, from your initial college journey to rewarding trips back home.",
-  date: "Pending",
-  time: "To Be Announced",
+  date: "Nov 12",
+  time: "10:00 AM - 4:00 PM",
   location: "HiLCoE Campus",
   category: "Campus Recruitment",
   badgeStyle: "bg-[#5C0632] text-white",
@@ -122,8 +122,8 @@ export default function UpcomingEvents() {
                   }}
                   aria-label={bookmarked ? "Bookmarked" : "Bookmark event"}
                   className={`flex h-7 w-7 items-center justify-center rounded-lg transition-all ${bookmarked
-                      ? "bg-hilcoe-red text-white"
-                      : "bg-hilcoe-soft text-hilcoe-muted hover:bg-hilcoe-blue/10 hover:text-hilcoe-blue"
+                    ? "bg-hilcoe-red text-white"
+                    : "bg-hilcoe-soft text-hilcoe-muted hover:bg-hilcoe-blue/10 hover:text-hilcoe-blue"
                     }`}
                 >
                   <Bookmark
